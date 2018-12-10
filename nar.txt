@@ -1,0 +1,200 @@
+focus_tree = {
+	id = nar_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = { 
+			add = 10
+			tag = NAR
+		}	
+	}
+	
+	focus = {
+		id = NAR_approach_government
+		icon = GFX_goal_generic_dangerous_deal
+		x = 0
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+			
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 100
+		}	
+	}
+	
+	focus = { 
+		id = NAR_unthinkable_option
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = NAR_approach_government }
+		mutually_exclusive = { 
+			focus = NAR_social_democracy 
+			focus = NAR_unshakeable_faith
+			focus = NAR_crush_opposition	
+			}
+		x = -1
+		y = 1
+		relative_position_id = NAR_approach_government
+		cost = 10
+		ai_will_do = {
+				factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = nationalism
+		}	
+	}
+		
+	focus = {
+		id = NAR_social_democracy
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = NAR_approach_government }
+		mutually_exclusive = { 
+			focus = NAR_unthinkable_option
+			focus = NAR_unshakeable_faith
+			focus = NAR_crush_opposition	
+			}
+		x = 1
+		y = 1
+		relative_position_id = NAR_approach_government
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = democratic_influence
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = NAR_marco_schneider
+			}
+	}
+	
+	focus = {
+		id = NAR_unshakeable_faith
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = NAR_approach_government }
+		mutually_exclusive = { 
+			focus = NAR_social_democracy 
+			focus = NAR_unthinkable_option 
+			focus = NAR_crush_opposition
+			}
+		x = -3 
+		y = 1
+		relative_position_id = NAR_approach_government
+		cost = 10 
+		ai_will_do = {
+			factor = 1
+			}
+		available_if_capitulated = no
+		completion_reward = { 
+			add_ideas =	NAR_unshakeable_faith
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = NAR_jesiz_garter
+			}
+	}
+	
+	focus = {
+		id = NAR_crush_opposition
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = NAR_approach_government }
+		mutually_exclusive = { 
+			focus = NAR_social_democracy
+			focus = NAR_unshakeable_faith
+			focus = NAR_unthinkable_option
+			}
+		x = 3
+		y = 1
+		relative_position_id = NAR_approach_government
+		cost = 10
+		ai_will_do = {
+			factor = 3 
+			}
+		available_if_capitulated = no
+		completion_reward = {
+			remove_ideas = NAR_unstable_government
+			add_ideas = NAR_cleanse_government
+			}
+	}
+		##############NEUTRAL_LINE##################
+	focus = {
+		id = NAR_coup_detait
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = NAR_unshakeable_faith }
+		relative_position_id = NAR_unshakeable_faith 
+		x = 0
+		y = 1
+		cost = 15
+		
+		ai_will_do = { 
+			factor = 3
+			}
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+					elections_allowed = no
+			}
+		}
+	}	
+			
+	focus = {
+		id = NAR_a_provisional_government
+		icon = GFX_goal_support_democracy 
+		prerequisite = { focus = NAR_coup_detait }
+		relative position_id = NAR_coup_detait
+		x = -3
+		y = 3
+		cost = 5 
+		ai_will_do = { 
+			factor = 1
+			}
+		available = {
+			has_government = neutrality
+			}
+		cancel_if_invalid = yes
+		continue_if_invalid = no 
+		completion_reward = {
+			remove_ideas = NAR_unstable_government 
+			remove_ideas = NAR_victors_of_revolution
+			add_ideas = NAR_provisional_government
+			
+		}
+	}
+	
+	focus = {
+		id = NAR_deadly_neutrality
+		icon = GFX_goal_generic_propaganda
+		prerequisite =  { focus = NAR_a_provisional_government }
+		relative_position_id = NAR_a_provisional_government
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = { 
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = military_youth_focus 
+			}
+	}
+	
+	focus = { 
+		id = NAR_opening_trade 
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = NAR_deadly_neutrality }
+		relative_position_id = NAR_deadly_neutrality
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = liberty_ethos_focus
+		}	
+	}
+
+	
+}

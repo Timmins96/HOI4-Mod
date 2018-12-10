@@ -1,0 +1,188 @@
+ideas = {
+	
+	political_advisor = {
+		
+		NAR_michael_alvarado = {
+			
+			picture = generic_political_advisor_europe_1
+			
+			allowed = { 
+				original_tag = NAR
+			}
+				
+			traits = { captain_of_industry }
+		}
+		
+		NAR_tobias_baird = {
+			
+			picture = generic_political_advisor_europe_2
+			
+			allowed = { 
+				original_tag = NAR
+			}
+			
+			traits = { communist_revolutionary }
+		}
+			
+		NAR_marco_schneider = {
+			
+			available = {
+				if = { 
+					has_completed_focus = NAR_social_democracy
+				}
+
+			}		
+			
+			picture = generic_political_advisor_europe_1
+			
+			allowed = {
+				original_tag = NAR
+			}
+			
+			traits = { democratic_reformer }
+		}
+			
+		NAR_eduard_coombes = {
+			
+			picture = generic_political_advisor_europe_2
+			
+			allowed = {
+				original_tag = NAR
+			}
+			
+			traits = { fascist_demagogue }
+		}
+		
+		NAR_oman_swan = {
+			
+			picture = generic_political_advisor_europe_1
+			
+			allowed = { 
+				original_tag = NAR
+			}
+				
+			traits = { prince_of_terror }	
+		}
+		
+		NAR_jesiz_garter = {
+			
+			available = {
+				if = {
+					has_completed_focus = NAR_unshakeable_faith
+					}
+			}		
+			
+			picture = generic_political_advisor_europe_2
+			
+			allowed = { 
+				original_tag = NAR 
+			}
+			traits = { staunch_monarchist }
+		}	
+	}
+	
+	
+	country = {
+
+		NAR_victors_of_revolution = {
+			
+			allowed = {
+				original_tag = NAR
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_victors_of_ww1
+			
+			
+			modifier = {
+				conscription = 0.003
+				war_support_factor = +0.05
+				communism_drift = 0.01
+			}
+		}
+		
+		NAR_unstable_government = {
+			
+			allowed = {
+				original_tag = NAR 
+				always = no
+			}
+				
+			removal_cost = -1
+			
+			picture = generic_disjointed_gov
+			
+			modifier = { 
+				stability_factor = -0.20
+				political_power_cost = 0.25
+				trade_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+				production_speed_dockyard_factor = -0.05
+				production_speed_arms_factory_factor = -0.05
+			}	
+		}
+		
+		NAR_ideological_crusader = {
+		
+			allowed = {
+				original_tag = NAR
+				always = yes
+			}
+			 
+			 
+			removal_cost = -1
+			
+			picture = socialist_science_focus
+			
+			modifier = {
+				drift_defence_factor = 1
+				}
+				rule = {
+					can_create_factions = yes
+				}
+		}	
+		
+		NAR_unshakeable_faith = {
+		
+			picture = HUN_treaty_of_triannon
+			
+			allowed_civil_war = { 
+				has_government = neutrality
+				}
+			modifier = {
+				neutrality_drift = 0.3
+			}
+		}	
+		
+		NAR_cleanse_government = {
+			picture = generic_disjointed_gov
+			
+			modifier = {
+			stability_factor = -0.30
+			political_power_gain = 0.1
+			trade_laws_cost_factor = -0.1
+			economy_cost_factor = -0.1
+			production_speed_dockyard_factor = -0.05
+			production_speed_arms_factory_factor = 0.05
+			}
+			
+		}
+		
+		NAR_provisional_government = {
+			picture = generic_disjointed_gov
+			
+			modifier = {
+			stability_factor = 0.10
+			political_power_gain = -0.1
+			economy_cost_factor = 0.15
+			production_speed_dockyard_factor = 0.05
+			production_speed_arms_factory_factor = -0.05
+			}
+		}
+}	
